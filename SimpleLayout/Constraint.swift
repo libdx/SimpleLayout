@@ -17,8 +17,8 @@ class ConstraintValue {
     unowned let constraint: Constraint
     let attribute: NSLayoutAttribute
     let relation: NSLayoutRelation?
-    var multiplier: Float = 1
-    var constant: Float = 0
+    var multiplier: CGFloat = 1
+    var constant: CGFloat = 0
 
     init(constraint: Constraint, attribute: NSLayoutAttribute) {
         self.constraint = constraint
@@ -153,12 +153,12 @@ func >= (left: ConstraintValue, right: ConstraintValue) -> NSLayoutConstraint {
     return left.constraint.create(right, relation: .GreaterThanOrEqual)
 }
 
-func + (attribute: ConstraintValue, constant: Float) -> ConstraintValue {
+func + (attribute: ConstraintValue, constant: CGFloat) -> ConstraintValue {
     attribute.constant = constant
     return attribute
 }
 
-func * (attribute: ConstraintValue, multiplier: Float) -> ConstraintValue {
+func * (attribute: ConstraintValue, multiplier: CGFloat) -> ConstraintValue {
     attribute.multiplier = multiplier
     return attribute
 }
