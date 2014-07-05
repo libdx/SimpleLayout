@@ -129,16 +129,15 @@ class Constraint {
             multiplier: rightValue.multiplier,
             constant: rightValue.constant)
     }
+}
 
-    class func make(
-        view1: UIView,
-        view2: UIView,
-        formula: (c1: Constraint, c2: Constraint) -> NSLayoutConstraint
-        ) -> NSLayoutConstraint {
+func constraint(
+    view1: UIView,
+    view2: UIView,
+    formula: (c1: Constraint, c2: Constraint) -> NSLayoutConstraint
+    ) -> NSLayoutConstraint {
 
-            return formula(c1: Constraint(view: view1), c2: Constraint(view: view2))
-    }
-
+        return formula(c1: Constraint(view: view1), c2: Constraint(view: view2))
 }
 
 func == (left: ConstraintValue, right: ConstraintValue) -> NSLayoutConstraint {
